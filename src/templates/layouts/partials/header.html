@@ -1,8 +1,36 @@
 {% load static %}
 
-<nav class="navbar">
-    <a class="navbar_logo_link" href="/" alt="Lien page d'accueil">
-        <img class="navbar_logo_image" src="{% static 'img/logo/ciaobatta_vertical_blanc.png' %}" alt="Lien vers la page d'accueil">
-    </a>
-    <h1>Ceci est la navbar</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-5 p-2" href="/" alt="Lien page d'accueil">
+            <img 
+                class="d-inline-block align-top" 
+                src="{% static 'img/logo/ciaobatta_vertical_blanc.png' %}" 
+                alt="Lien vers la page d'accueil"
+                width="250"
+            >
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                {% comment %} <li class="nav-item mx-2">
+                    <a class="nav-link active fw-bold" href="#">Accueil</a>
+                </li> {% endcomment %}
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">À propos</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
