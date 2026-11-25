@@ -1,0 +1,32 @@
+// // css/bootstrap/theme.scss
+// // $primary: #808000;
+// $box-shadow: 0 2px 4px #808000 !default;
+
+// .nav_link {
+//     @extend .shadow;
+//     box-shadow: $box-shadow;
+// }
+
+// // Pour personnaliser la navbar
+// .navbar {
+//     box-shadow: $box-shadow;
+// }
+
+// Variables personnalisées
+$primary: #808000;
+$secondary: #6c757d;
+
+// Importation de Bootstrap
+@import './bootstrap/bootstrap';
+
+// Vos styles personnalisés
+body {
+    margin: 0;
+    padding: 20px;
+}
+
+.custom-button {
+    @extend .btn;
+    @extend .btn-primary;
+    padding: 15px 30px;
+}

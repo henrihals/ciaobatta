@@ -3,7 +3,9 @@
 
 {% block title %}Accueil{% endblock title %}
 
-{% block css %}{% endblock css %}
+{% comment %} {% block css %}
+    <link type="text/x-scss" href="{% static 'css/theme.scss' %}" rel="stylesheet" media="screen">
+{% endblock css %} {% endcomment %}
 
 {% block body %}
 <main>
