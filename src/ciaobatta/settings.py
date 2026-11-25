@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
+    'django_libsass',
     'homepage.apps.HomepageConfig'
 ]
 
@@ -125,6 +127,50 @@ APP_STATIC_DIRS = [
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ] + APP_STATIC_DIRS
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+STATIC_ROOT= r"C:\Users\Utilisateur\Documents\code\ciaobatta\src\compress"
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+COMPRESS_CACHEABLE_PRECOMPILERS = (('text/x-scss', 'django_libsass.SassCompiler'),)
+
+# Configuration de la sortie SCSS
+LIBSASS_OUTPUT_STYLE = 'compressed'  # Pour la production
+# LIBSASS_OUTPUT_STYLE = 'nested'    # Pour le développement
+
+# CONFIGURATION POUR LA PRODUCTION
+# Ajoutez ces paramètres dans votre settings/production.py :
+# COMPRESS_OFFLINE = True
+# LIBSASS_OUTPUT_STYLE = 'compressed'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+# Commandes de Déploiement
+# Pour déployer en production :
+
+
+# # Compilation des fichiers SCSS
+# python manage.py compress --force
+
+# # Collecte des fichiers statiques
+# python manage.py collectstatic
+# Notes Importantes
+# En mode développement, les fichiers SCSS sont compilés automatiquement à chaque chargement de page lukeplant.me.uk
+# En production, utilisez COMPRESS_OFFLINE = True pour compiler les fichiers une seule fois accordbox.com
+# Vous pouvez personnaliser l'output SCSS avec différentes options :
+# 'nested' : Pour le développement (code plus lisible)
+# 'expanded' : Format standard
+# 'compact' : Une déclaration par ligne
+# 'compressed' : Pour la production (fichier le plus petit possible)
+# Pour les chemins d'import, vous pouvez utiliser des chemins relatifs ou absolus github.com
+# Cette configuration vous permet d'utiliser toutes les fonctionnalités de Bootstrap SCSS tout en bénéficiant de la puissance de django-compressor pour la compression et le cache des fichiers statiques.
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
